@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/MikailLG/projet-red-thefall-7/src/character"
-)
+import "projet-red-thefall-7/character"
 
 func main() {
 	personnage := character.InitCharacter()
