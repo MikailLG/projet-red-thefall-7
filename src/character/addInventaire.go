@@ -9,8 +9,8 @@ import (
 	"github.com/MikailLG/projet-red-thefall-7/src/character"
 )
 
-func addInventory(personnage character.Character, item string) error {
-	p.Inventory = append(personnage.Inventory, item)
+func addInventaire(personnage character.Character, item string) error {
+	p.Inventaire = append(personnage.Inventaire, item)
 	return nil
 }
 

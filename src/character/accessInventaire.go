@@ -5,11 +5,11 @@ import (
 )
 
 func AccessInventory(personnage Character) {
-	if len(personnage.Inventory) == 0 {
+	if len(personnage.Inventaire) == 0 {
 		fmt.Println("Votre inventaire est vide.")
 	} else {
 		fmt.Println("Inventaire :")
-		for _, objet := range personnage.Inventory {
+		for _, objet := range personnage.Inventaire {
 			fmt.Println("- " + objet)
 		}
 	}
