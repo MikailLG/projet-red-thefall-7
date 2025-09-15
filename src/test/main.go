@@ -6,9 +6,9 @@ func main() {
 	personnage := character.InitCharacter()
 	character.DisplayInfo(personnage)
 	character.Heal(&personnage)
-	character.accessInventaire(personnage)
+	character.AccessInventaire(personnage)
 	character.addInventaire(personnage)
 	character.isdead(&personnage)
-	character.takePot(personnage)
+	character.TakePot(personnage)
 
 }

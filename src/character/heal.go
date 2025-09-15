@@ -17,3 +17,13 @@ func Heal(p *Character) {
 	}
 	fmt.Println("Vous n'avez pas de bandage dans votre inventaire.")
 }
+
+func Removem(personnage Character, item string) bool {
+	for i, it := range personnage.Inventaire {
+		if it == item {
+			personnage.Inventaire = append(personnage.Inventaire[:i], personnage.Inventaire[i+1:]...)
+			return true
+		}
+	}
+	return false
+}
