@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func isOnlyLetters(s string) bool {
+func lettres(s string) bool {
 	if len(s) == 0 {
 		return false
 	}
@@ -26,7 +26,7 @@ func characterCreation() Character {
 		fmt.Print("Choisissez le nom de votre personnage : ")
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimSpace(input)
-		if isOnlyLetters(input) {
+		if lettres(input) {
 			runes := []rune(input)
 			for i := 0; i < len(runes); i++ {
 				if runes[i] >= 'A' && runes[i] <= 'Z' {
