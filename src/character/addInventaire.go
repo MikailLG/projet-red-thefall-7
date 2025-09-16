@@ -24,7 +24,7 @@ func MerchantMenu(personnage Character) {
 		if ch == "0" {
 			return
 		} else if ch == "1" {
-			AddInventaire(p, "Bandage")
+			AddInventaire(personnage, "Bandage")
 			fmt.Println("Vous avez acheté : Bandage")
 		} else {
 			fmt.Println("Choix invalide.")
