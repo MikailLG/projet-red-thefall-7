@@ -7,11 +7,6 @@ import (
 	"strings"
 )
 
-func AddInventaire(personnage Character, item string) error {
-	personnage.Inventaire = append(personnage.Inventaire, item)
-	return nil
-}
-
 func MerchantMenu(p *Character) {
 	reader := bufio.NewReader(os.Stdin)
 	for {
@@ -27,10 +22,10 @@ func MerchantMenu(p *Character) {
 		case "0":
 			return
 		case "1":
-			p.Inventaire = append(p.Inventaire, "Bandage")
+			AddInventaire(p, "Bandage")
 			fmt.Println("Vous avez acheté : Bandage")
 		case "2":
-			p.Inventaire = append(p.Inventaire, "Compétence : Technique de combat avancée")
+			AddInventaire(p, "Compétence : Technique de combat avancée")
 			fmt.Println("Vous avez acheté : Compétence : Technique de combat avancée")
 		default:
 			fmt.Println("Choix invalide.")

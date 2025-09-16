@@ -1,16 +1,14 @@
 package character
 
-import (
-	"fmt"
-)
+import "fmt"
 
-func DisplayInfo(personnage Character) Character {
-	fmt.Println("===Informations du personnage===")
-	fmt.Println("Nom:", personnage.Nom)
-	fmt.Println("Classe:", personnage.Classe)
-	fmt.Println("Niveau:", personnage.Niveau)
-	fmt.Println("PointDeVie", personnage.PointDeVie)
-	fmt.Println("PointDeVieMax", personnage.PointDeVieMax)
-	fmt.Println("Inventaire:", personnage.Inventaire)
-	return personnage
+func DisplayInfo(p Character) {
+	fmt.Println("=== Informations du personnage ===")
+	fmt.Println("Nom:", p.Nom)
+	fmt.Println("Classe:", p.Classe)
+	fmt.Println("Niveau:", p.Niveau)
+	fmt.Println("PointDeVie:", p.PointDeVie)
+	fmt.Println("PointDeVieMax:", p.PointDeVieMax)
+	fmt.Println("Inventaire:", p.Inventaire)
+	fmt.Println("Compétences:", p.Competences)
 }

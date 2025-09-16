@@ -7,7 +7,7 @@ type Character struct {
 	PointDeVie    int
 	PointDeVieMax int
 	Inventaire    []string
-	compétence    []string
+	Competences   []string
 }
 
 func InitCharacter() Character {
@@ -17,7 +17,7 @@ func InitCharacter() Character {
 		Niveau:        1,
 		PointDeVie:    100,
 		PointDeVieMax: 100,
-		Inventaire:    []string{"Lampe de poche", "Couteau suissse"},
-		compétence:    []string{"Technique de défense lvl 1"},
+		Inventaire:    []string{"Lampe de poche", "Couteau suisse"},
+		Competences:   []string{"Technique de défense lvl 1"},
 	}
 }
