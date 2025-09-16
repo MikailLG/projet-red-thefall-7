@@ -19,8 +19,8 @@ func Heal(p *Character) {
 }
 
 func Removem(personnage Character, item string) bool {
-	for i, it := range personnage.Inventaire {
-		if it == item {
+	for i, c := range personnage.Inventaire {
+		if c == item {
 			personnage.Inventaire = append(personnage.Inventaire[:i], personnage.Inventaire[i+1:]...)
 			return true
 		}
