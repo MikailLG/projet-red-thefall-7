@@ -12,21 +12,27 @@ func AddInventaire(personnage Character, item string) error {
 	return nil
 }
 
-func MerchantMenu(personnage Character) {
+func MerchantMenu(p *Character) {
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		fmt.Println("=== Marchand ===")
 		fmt.Println("1) Bandage (gratuit)")
+		fmt.Println("2) Technique de combat avancée")
 		fmt.Println("0) Retour")
 		fmt.Print("Choix : ")
 		ch, _ := reader.ReadString('\n')
 		ch = strings.TrimSpace(ch)
-		if ch == "0" {
+
+		switch ch {
+		case "0":
 			return
-		} else if ch == "1" {
-			AddInventaire(personnage, "Bandage")
+		case "1":
+			p.Inventaire = append(p.Inventaire, "Bandage")
 			fmt.Println("Vous avez acheté : Bandage")
-		} else {
+		case "2":
+			p.Inventaire = append(p.Inventaire, "Compétence : Technique de combat avancée")
+			fmt.Println("Vous avez acheté : Livre de Sort : Boule de Feu")
+		default:
 			fmt.Println("Choix invalide.")
 		}
 	}
