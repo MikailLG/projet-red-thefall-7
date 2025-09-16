@@ -5,16 +5,14 @@ import (
 	"fmt"
 	"os"
 	"strings"
-
-	"github.com/MikailLG/projet-red-thefall-7/src/character"
 )
 
-func addInventory(personnage character.Character, item string) error {
-	p.Inventory = append(personnage.Inventory, item)
+func AddInventaire(personnage Character, item string) error {
+	personnage.Inventaire = append(personnage.Inventaire, item)
 	return nil
 }
 
-func merchantMenu(personnage Character) {
+func MerchantMenu(personnage Character) {
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		fmt.Println("=== Marchand ===")
@@ -26,7 +24,7 @@ func merchantMenu(personnage Character) {
 		if ch == "0" {
 			return
 		} else if ch == "1" {
-			addInventory(p, "Bandage")
+			AddInventaire(p, "Bandage")
 			fmt.Println("Vous avez acheté : Bandage")
 		} else {
 			fmt.Println("Choix invalide.")

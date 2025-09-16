@@ -4,11 +4,11 @@ import (
 	"fmt"
 )
 
-func isDead(personnage *Character) bool {
-	if personnage.HP <= 0 {
-		fmt.Printf("%s est mort(e)...\n", &personnage.Name)
-		personnage.HP = personnage.MaxHP / 2
-		fmt.Printf("%s ressuscite avec %d PV.\n", &personnage.Name, personnage.HP)
+func IsDead(p *Character) bool {
+	if p.PointDeVie <= 0 {
+		fmt.Printf("%v est mort(e)...\n", &p.Nom)
+		p.PointDeVie = p.PointDeVieMax / 2
+		fmt.Printf("%v ressuscite avec %d PV.\n", &p.Nom, p.PointDeVie)
 		return true
 	}
 	return false
