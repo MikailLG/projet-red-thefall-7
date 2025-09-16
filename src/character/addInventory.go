@@ -18,7 +18,7 @@ func merchantMenu(personnage Character) {
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		fmt.Println("=== Marchand ===")
-		fmt.Println("1) Potion de vie (gratuit)")
+		fmt.Println("1) Bandage (gratuit)")
 		fmt.Println("0) Retour")
 		fmt.Print("Choix : ")
 		ch, _ := reader.ReadString('\n')
@@ -26,8 +26,8 @@ func merchantMenu(personnage Character) {
 		if ch == "0" {
 			return
 		} else if ch == "1" {
-			addInventory(p, "Potion de vie")
-			fmt.Println("Vous avez acheté : Potion de vie")
+			addInventory(p, "Bandage")
+			fmt.Println("Vous avez acheté : Bandage")
 		} else {
 			fmt.Println("Choix invalide.")
 		}
