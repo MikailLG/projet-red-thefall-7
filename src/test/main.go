@@ -7,8 +7,7 @@ func main() {
 	character.DisplayInfo(personnage)
 	character.Heal(&personnage)
 	character.AccessInventaire(personnage)
-	character.AddInventaire(personnage)
-	character.Isdead(&personnage)
+	character.AddInventaire(personnage, "Bandage")
+	character.IsDead(&personnage)
 	character.TakePot(personnage)
-
 }
