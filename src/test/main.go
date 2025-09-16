@@ -25,9 +25,6 @@ func main() {
 	fmt.Println("\n--- Heal via fonction Heal ---")
 	character.Heal(&personnage)
 
-	fmt.Println("\n--- Test Potion ---")
-	character.TakePot(&personnage)
-
 	fmt.Println("\n--- Simulation mort ---")
 	personnage.PointDeVie = 0
 	if character.IsDead(&personnage) {

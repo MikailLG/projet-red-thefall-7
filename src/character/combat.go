@@ -28,18 +28,6 @@ func Heal(p *Character) {
 	}
 }
 
-func TakePot(p *Character) {
-	if !RemoveItem(p, "Potion de vie") {
-		fmt.Println("Pas de potion de vie dans l'inventaire.")
-		return
-	}
-	p.PointDeVie += 50
-	if p.PointDeVie > p.PointDeVieMax {
-		p.PointDeVie = p.PointDeVieMax
-	}
-	fmt.Printf("Potion utilisée. PV : %d / %d\n", p.PointDeVie, p.PointDeVieMax)
-}
-
 func UseItem(p *Character, item string) {
 	for i, c := range p.Inventaire {
 		if c == item {
@@ -72,7 +60,7 @@ func IsDead(p *Character) bool {
 	return false
 }
 
-func poison(p *Character) {
+func Poison(p *Character) {
 	for i := 1; i <= 3; i++ {
 		p.PointDeVie -= 10
 		if p.PointDeVie < 0 {
