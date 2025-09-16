@@ -31,7 +31,7 @@ func MerchantMenu(p *Character) {
 			fmt.Println("Vous avez acheté : Bandage")
 		case "2":
 			p.Inventaire = append(p.Inventaire, "Compétence : Technique de combat avancée")
-			fmt.Println("Vous avez acheté : Livre de Sort : Boule de Feu")
+			fmt.Println("Vous avez acheté : Compétence : Technique de combat avancée")
 		default:
 			fmt.Println("Choix invalide.")
 		}
