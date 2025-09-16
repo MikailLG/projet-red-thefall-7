@@ -1,14 +1,14 @@
 package main
 
-import "projet-red-thefall-7/character"
+import "projet-red/character"
 
 func main() {
 	personnage := character.InitCharacter()
 	character.DisplayInfo(personnage)
 	character.Heal(&personnage)
 	character.AccessInventaire(personnage)
-	character.addInventaire(personnage)
-	character.isdead(&personnage)
+	character.AddInventaire(personnage)
+	character.Isdead(&personnage)
 	character.TakePot(personnage)
 
 }
