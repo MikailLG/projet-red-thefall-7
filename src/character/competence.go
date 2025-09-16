@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func LearnSpell(p *Character, apprendre string) {
+func apprendreCompétence(p *Character, apprendre string) {
 	for _, s := range p.compétence {
 		if s == apprendre {
 			fmt.Println("Vous avez déja appris cette compétence :", apprendre)
