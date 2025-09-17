@@ -28,3 +28,4 @@ func main() {
 	fmt.Println("\n=== Infos finales du personnage ===")
 	character.DisplayInfo(personnage)
 }
+
