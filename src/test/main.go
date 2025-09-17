@@ -8,6 +8,7 @@ import (
 func main() {
 	personnage := character.CharacterCreation()
 
+	fmt.Println("\n=== Infos initiales du personnage ===")
 	character.DisplayInfo(personnage)
 
 	fmt.Println("\n--- Accès à l'inventaire ---")
@@ -30,7 +31,6 @@ func main() {
 	if character.IsDead(&personnage) {
 		fmt.Println("Résurrection réussie !")
 	}
-
 	fmt.Println("\n=== Infos finales du personnage ===")
 	character.DisplayInfo(personnage)
 }
