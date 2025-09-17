@@ -13,6 +13,7 @@ type Character struct {
 	PointDeVieMax int
 	Inventaire    []string
 	Competences   []string
+	Argent        int
 }
 
 func InitCharacter() Character {
@@ -45,5 +46,6 @@ func InitCharacter() Character {
 		PointDeVie:    pvMax,
 		Inventaire:    []string{"Lampe de poche", "Couteau suisse"},
 		Competences:   []string{"Coup de Poing"},
+		Argent:        20,
 	}
 }

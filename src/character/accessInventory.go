@@ -3,12 +3,15 @@ package character
 import "fmt"
 
 func AccessInventaire(p Character) {
+	fmt.Println("==============================")
+	fmt.Println("        Inventaire")
+	fmt.Println("==============================")
+
 	if len(p.Inventaire) == 0 {
 		fmt.Println("Votre inventaire est vide.")
 	} else {
-		fmt.Println("Inventaire :")
 		for _, objet := range p.Inventaire {
-			fmt.Println("- " + objet)
+			fmt.Printf("  - %s\n", objet)
 		}
 	}
 }

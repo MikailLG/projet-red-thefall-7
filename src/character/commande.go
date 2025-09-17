@@ -3,12 +3,23 @@ package character
 import "fmt"
 
 func DisplayInfo(p Character) {
-	fmt.Println("=== Informations du personnage ===")
-	fmt.Println("Nom:", p.Nom)
-	fmt.Println("Classe:", p.Classe)
-	fmt.Println("Niveau:", p.Niveau)
-	fmt.Println("PointDeVie:", p.PointDeVie)
-	fmt.Println("PointDeVieMax:", p.PointDeVieMax)
-	fmt.Println("Inventaire:", p.Inventaire)
-	fmt.Println("Compétences:", p.Competences)
+	fmt.Println("==============================")
+	fmt.Println("   Informations du personnage")
+	fmt.Println("==============================")
+	fmt.Printf("Nom         : %s\n", p.Nom)
+	fmt.Printf("Classe      : %s\n", p.Classe)
+	fmt.Printf("Niveau      : %d\n", p.Niveau)
+	fmt.Printf("Points de vie : %d / %d\n", p.PointDeVie, p.PointDeVieMax)
+
+	fmt.Println("Inventaire  :")
+	for _, item := range p.Inventaire {
+		fmt.Printf("  - %s\n", item)
+	}
+
+	fmt.Println("Compétences :")
+	for _, skill := range p.Competences {
+		fmt.Printf("  - %s\n", skill)
+	}
+
+	fmt.Printf("Argent      : %d pièces\n", p.Argent)
 }
