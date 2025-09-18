@@ -1,16 +1,13 @@
 package character
 
-import(
-	"fmt"
-)
-	type Equipement struct{
-		Head string
-		Torso string
-		Feet string
-	}
-	func showequipement(c Character)
+type Equipement struct {
+	Tête  string
+	Torse string
+	Pieds string
+}
 
-	fmt.Println("===Equipement===")
-	fmt.Println("Head:", personnage.Equipement.T)
-	fmt.Println("Classe", personnage.Equipement.Torso)
-	fmt.Println("Classe", personnage.Equipement.Feet)
+type character struct {
+	Nom        string
+	Pointdevie int
+	Equipement Equipement
+}
