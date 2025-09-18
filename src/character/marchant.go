@@ -17,11 +17,17 @@ func MerchantMenu(p *Character) {
 	items := []Item{
 		{"Bandage", 3},
 		{"Flèche empoisonée", 6},
+		{"Arbalette", 18},
 		{"Pistolet", 4},
 		{"munition de pistolet", 7},
-		{"Fusil à pompe", 45},
+		{"Fusil à pompe", 30},
 		{"Munition de pompe", 1},
 		{"Technique de combat avancée", 25},
+		{"Tissu", 4},
+		{"Plaque de fer", 12},
+		{"corde", 8},
+		{"Keyvlar", 10},
+		{"Cuir", 5},
 	}
 	for {
 		fmt.Println("==============================")
