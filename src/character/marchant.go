@@ -3,8 +3,10 @@ package character
 import (
 	"bufio"
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 type Item struct {
@@ -12,7 +14,25 @@ type Item struct {
 	Price int
 }
 
+func AfficherCaractere(text string, delay time.Duration) {
+	for _, c := range text {
+		fmt.Printf("%c", c)
+		time.Sleep(delay)
+	}
+	fmt.Println()
+}
+
 func MerchantMenu(p *Character) {
+	PlayMusic("marchand.mp3")
+	defer StopMusic()
+	phrases := []string{
+		"Bienvenue étranger ha ha ha !",
+		"Je sais que tu as de l'argent, alors achète une arme !",
+		"Ah, un nouveau visage dans ces ruines...",
+	}
+	index := rand.Intn(len(phrases) - 1)
+	AfficherCaractere(phrases[index], 50*time.Millisecond)
+
 	reader := bufio.NewReader(os.Stdin)
 	items := []Item{
 		{"Bandage", 3},
