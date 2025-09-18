@@ -1,5 +1,10 @@
 package character
 
+import (
+	"fmt"
+	"strings"
+)
+
 type Character struct {
 	Nom           string
 	Classe        string
@@ -7,17 +12,40 @@ type Character struct {
 	PointDeVie    int
 	PointDeVieMax int
 	Inventaire    []string
-	compétence    []string
+	Competences   []string
+	Argent        int
 }
 
 func InitCharacter() Character {
+	var classe string
+	pvMax := 100
+
+	for {
+		fmt.Println("Choisissez votre classe : Militaire, Citoyen ou Braconnier")
+		fmt.Scanln(&classe)
+		classe = Capitalize(strings.TrimSpace(classe))
+
+		switch classe {
+		case "Militaire":
+			pvMax = 120
+		case "Citoyen":
+			pvMax = 80
+		case "Braconnier":
+			pvMax = 100
+		default:
+			fmt.Println("Erreur : classe inconnue. Veuillez entrer Militaire, Citoyen ou Braconnier.")
+			continue
+		}
+		break
+	}
 	return Character{
 		Nom:           "Manu",
-		Classe:        "Humain",
+		Classe:        classe,
 		Niveau:        1,
-		PointDeVie:    100,
-		PointDeVieMax: 100,
-		Inventaire:    []string{"Lampe de poche", "Couteau suissse"},
-		compétence:    []string{"Technique de défense lvl 1"},
+		PointDeVieMax: pvMax,
+		PointDeVie:    pvMax,
+		Inventaire:    []string{"Lampe de poche", "Couteau suisse"},
+		Competences:   []string{"Coup de Poing"},
+		Argent:        20,
 	}
 }

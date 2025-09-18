@@ -1,3 +1,3 @@
-module projet-red-thefall-7
+module projet-red
 
 go 1.22.2
