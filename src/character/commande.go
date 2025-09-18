@@ -10,6 +10,10 @@ func DisplayInfo(p Character) {
 	fmt.Printf("Classe      : %s\n", p.Classe)
 	fmt.Printf("Niveau      : %d\n", p.Niveau)
 	fmt.Printf("Points de vie : %d / %d\n", p.PointDeVie, p.PointDeVieMax)
+	fmt.Println("Équipement  :")
+    fmt.Printf("  - Tête  : %s\n", p.Equipement.Casque)
+    fmt.Printf("  - Torse : %s\n", p.Equipement.GiletParBalle)
+    fmt.Printf("  - Pieds : %s\n", p.Equipement.Botte)
 
 	fmt.Println("Inventaire  :")
 	for nom, quantite := range p.Inventaire {

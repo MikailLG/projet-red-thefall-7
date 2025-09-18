@@ -14,6 +14,19 @@ type Character struct {
 	Inventaire    map[string]int
 	Competences   []string
 	Argent        int
+	Equipement    Equipement
+}
+
+type Equipement struct {
+	Casque        string
+	GiletParBalle string
+	Botte         string
+}
+
+type EquipementCharacter struct {
+	Nom        string
+	PointDeVie int
+	Equipement Equipement
 }
 
 func InitCharacter() Character {
@@ -37,6 +50,7 @@ func InitCharacter() Character {
 		}
 		break
 	}
+
 	return Character{
 		Nom:           "",
 		Classe:        classe,
@@ -49,5 +63,10 @@ func InitCharacter() Character {
 		},
 		Competences: []string{""},
 		Argent:      20,
+		Equipement: Equipement{
+			Casque:        "Aucun",
+			GiletParBalle: "Aucun",
+			Botte:         "Aucune",
+		},
 	}
 }
