@@ -1,31 +1,61 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"projet-red/character"
+	"strings"
 )
 
-func main() {
-	character.ShowIntro()
-	personnage := character.CharacterCreation()
-	fmt.Println("\n=== Infos initiales du personnage ===")
-	character.DisplayInfo(personnage)
-	fmt.Println("\n--- Accès à l'inventaire ---")
-	character.AccessInventaire(personnage)
-	character.AddInventaire(&personnage, "Bandage")
-	fmt.Println("\n--- Passage chez le marchand ---")
-	character.MerchantMenu(&personnage)
-	fmt.Println("\n--- Inventaire après achats ---")
-	character.AccessInventaire(personnage)
-	fmt.Println("\n--- Utilisation d'un objet ---")
-	character.UseItem(&personnage, "Bandage")
-	fmt.Println("\n--- Heal via fonction Heal ---")
-	character.Heal(&personnage)
-	fmt.Println("\n--- Simulation mort ---")
-	personnage.PointDeVie = 0
-	if character.IsDead(&personnage) {
-		fmt.Println("Résurrection réussie !")
+func mainMenu(personnage *character.Character) {
+	reader := bufio.NewReader(os.Stdin)
+
+	for {
+		character.ClearScreen()
+
+		fmt.Println("\n=== Menu principal ===")
+		fmt.Println("1) Afficher les informations")
+		fmt.Println("2) Accéder à l'inventaire")
+		fmt.Println("3) Aller chez le marchand")
+		fmt.Println("4) Utiliser un objet")
+		fmt.Println("5) Heal")
+		fmt.Println("0) Quitter")
+		fmt.Print("Choix : ")
+
+		input, _ := reader.ReadString('\n')
+		input = strings.TrimSpace(input)
+
+		switch input {
+		case "1":
+			character.DisplayInfo(*personnage)
+		case "2":
+			character.AccessInventaire(*personnage)
+		case "3":
+			character.MerchantMenu(personnage)
+		case "4":
+			fmt.Print("Quel objet utiliser ? ")
+			objet, _ := reader.ReadString('\n')
+			character.UseItem(personnage, strings.TrimSpace(objet))
+		case "5":
+			character.Heal(personnage)
+		case "0":
+			fmt.Println("Au revoir !")
+			return
+		default:
+			fmt.Println("Choix invalide.")
+		}
+
+		fmt.Println("\nAppuyez sur Entrée pour continuer...")
+		reader.ReadString('\n')
 	}
-	fmt.Println("\n=== Infos finales du personnage ===")
-	character.DisplayInfo(personnage)
+}
+
+func main() {
+	character.PlayMusic("musicintro.mp3")
+	character.ShowIntro()
+	character.Histoire()
+	personnage := character.CharacterCreation()
+	character.StopMusic()
+	mainMenu(&personnage)
 }
