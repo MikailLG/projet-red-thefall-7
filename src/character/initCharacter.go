@@ -11,7 +11,7 @@ type Character struct {
 	Niveau        int
 	PointDeVie    int
 	PointDeVieMax int
-	Inventaire    []string
+	Inventaire    map[string]int
 	Competences   []string
 	Argent        int
 }
@@ -24,7 +24,6 @@ func InitCharacter() Character {
 		fmt.Println("Choisissez votre classe : Militaire, Citoyen ou Braconnier")
 		fmt.Scanln(&classe)
 		classe = Capitalize(strings.TrimSpace(classe))
-
 		switch classe {
 		case "Militaire":
 			pvMax = 120
@@ -39,13 +38,16 @@ func InitCharacter() Character {
 		break
 	}
 	return Character{
-		Nom:           "Manu",
+		Nom:           "",
 		Classe:        classe,
 		Niveau:        1,
 		PointDeVieMax: pvMax,
 		PointDeVie:    pvMax,
-		Inventaire:    []string{"Lampe de poche", "Couteau suisse"},
-		Competences:   []string{"Coup de Poing"},
-		Argent:        20,
+		Inventaire: map[string]int{
+			"Lampe de poche": 1,
+			"Couteau suisse": 1,
+		},
+		Competences: []string{""},
+		Argent:      20,
 	}
 }

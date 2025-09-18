@@ -10,22 +10,30 @@ func AccessInventaire(p Character) {
 	if len(p.Inventaire) == 0 {
 		fmt.Println("Votre inventaire est vide.")
 	} else {
-		for _, objet := range p.Inventaire {
-			fmt.Printf("  - %s\n", objet)
+		for nom, quantite := range p.Inventaire {
+			fmt.Printf("  - %s x%d\n", nom, quantite)
 		}
 	}
 }
 
 func AddInventaire(p *Character, item string) {
-	p.Inventaire = append(p.Inventaire, item)
+	if p.Inventaire == nil {
+		p.Inventaire = make(map[string]int)
+	}
+	p.Inventaire[item]++
+	if p.item >= 10  {
+		return fmt.Println("Votre inventaire est plein !")
+	}
 }
 
 func RemoveItem(p *Character, item string) bool {
-	for i, it := range p.Inventaire {
-		if it == item {
-			p.Inventaire = append(p.Inventaire[:i], p.Inventaire[i+1:]...)
-			return true
+	if quantite, exists := p.Inventaire[item]; exists {
+		if quantite > 1 {
+			p.Inventaire[item]--
+		} else {
+			delete(p.Inventaire, item)
 		}
+		return true
 	}
 	return false
 }

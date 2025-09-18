@@ -7,32 +7,58 @@ import (
 	"strings"
 )
 
+type Item struct {
+	Name  string
+	Price int
+}
+
 func MerchantMenu(p *Character) {
 	reader := bufio.NewReader(os.Stdin)
+	items := []Item{
+		{"Bandage", 3},
+		{"Flèche empoisonée", 6},
+		{"Pistolet", 4},
+		{"munition de pistolet", 7},
+		{"Fusil à pompe", 45},
+		{"Munition de pompe", 1},
+		{"Technique de combat avancée", 25},
+	}
 	for {
 		fmt.Println("==============================")
 		fmt.Println("          Marchand")
 		fmt.Println("==============================")
-		fmt.Println("1) Bandage (gratuit)")
-		fmt.Println("2) Technique de combat avancée")
+		for i, item := range items {
+			fmt.Printf("%d) %s", i+1, item.Name)
+			if item.Price > 0 {
+				fmt.Printf(" : %d pièces d’or", item.Price)
+			} else {
+				fmt.Printf(" (gratuit)")
+			}
+			fmt.Println()
+		}
 		fmt.Println("0) Retour")
 		fmt.Print("Votre choix : ")
 
 		ch, _ := reader.ReadString('\n')
 		ch = strings.TrimSpace(ch)
-
-		switch ch {
-		case "0":
+		if ch == "0" {
 			fmt.Println("Vous quittez le marchand.")
 			return
-		case "1":
-			AddInventaire(p, "Bandage")
-			fmt.Println("Vous avez acheté : Bandage")
-		case "2":
-			AddInventaire(p, "Compétence : Technique de combat avancée")
-			fmt.Println("Vous avez acheté : Technique de combat avancée")
-		default:
-			fmt.Println("Choix invalide, veuillez réessayer.")
 		}
+		var choix int
+		_, err := fmt.Sscanf(ch, "%d", &choix)
+		if err != nil || choix < 1 || choix > len(items) {
+			fmt.Println("Choix invalide, veuillez réessayer.")
+			continue
+		}
+		selectedItem := items[choix-1]
+		if p.Argent < selectedItem.Price {
+			fmt.Println("Vous n'avez pas assez de pièces d’or pour cet item.")
+			continue
+		}
+		p.Argent -= selectedItem.Price
+		AddInventaire(p, selectedItem.Name)
+		fmt.Printf("Vous avez acheté : %s\n", selectedItem.Name)
+		fmt.Printf("Il vous reste %d pièces d’or.\n", p.Argent)
 	}
 }

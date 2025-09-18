@@ -12,14 +12,12 @@ func DisplayInfo(p Character) {
 	fmt.Printf("Points de vie : %d / %d\n", p.PointDeVie, p.PointDeVieMax)
 
 	fmt.Println("Inventaire  :")
-	for _, item := range p.Inventaire {
-		fmt.Printf("  - %s\n", item)
+	for nom, quantite := range p.Inventaire {
+		fmt.Printf("  - %s x%d\n", nom, quantite)
 	}
-
 	fmt.Println("Compétences :")
 	for _, skill := range p.Competences {
 		fmt.Printf("  - %s\n", skill)
 	}
-
-	fmt.Printf("Argent      : %d pièces\n", p.Argent)
+	fmt.Printf("Argent : %d pièces\n", p.Argent)
 }
