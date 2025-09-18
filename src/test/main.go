@@ -12,10 +12,7 @@ func main() {
 	character.DisplayInfo(personnage)
 	fmt.Println("\n--- Accès à l'inventaire ---")
 	character.AccessInventaire(personnage)
-	character.AddInventaire(personnage)
-	character.Isdead(&personnage)
-	character.TakePot(personnage)
-
+	character.AddInventaire(&personnage, "Bandage")
 	fmt.Println("\n--- Passage chez le marchand ---")
 	character.MerchantMenu(&personnage)
 	fmt.Println("\n--- Inventaire après achats ---")

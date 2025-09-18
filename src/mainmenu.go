@@ -4,9 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"projet-red/character"
 	"strings"
-	
-	"projet-red-thefall-7/character"
 )
 
 func mainMenu(personnage character.Character) {
@@ -21,9 +20,9 @@ func mainMenu(personnage character.Character) {
 		input = strings.TrimSpace(input)
 		switch input {
 		case "1":
-			DisplayInfo(*personnage)
+			character.DisplayInfo(personnage)
 		case "2":
-			accessInventaire(personnage)
+			character.AccessInventaire(personnage)
 		case "0":
 			fmt.Println("Au revoir.")
 			return
@@ -31,9 +30,4 @@ func mainMenu(personnage character.Character) {
 			fmt.Println("Choix invalide.")
 		}
 	}
-}
-
-func accessInventaire(personnage invalid type
-	) {
-	panic("unimplemented")
 }

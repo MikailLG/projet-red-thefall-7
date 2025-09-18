@@ -17,13 +17,15 @@ func AccessInventaire(p Character) {
 }
 
 func AddInventaire(p *Character, item string) {
-	if p.Inventaire == nil {
-		p.Inventaire = make(map[string]int)
-	}
-	p.Inventaire[item]++
-	if p.item >= 10  {
-		return fmt.Println("Votre inventaire est plein !")
-	}
+    if p.Inventaire == nil {
+        p.Inventaire = make(map[string]int)
+    }
+    if _, exists := p.Inventaire[item]; exists || len(p.Inventaire) < 10 {
+        p.Inventaire[item]++
+        fmt.Println(item, "ajouté à l'inventaire.")
+    } else {
+        fmt.Println("Votre inventaire est plein ! Impossible d'ajouter", item)
+    }
 }
 
 func RemoveItem(p *Character, item string) bool {
