@@ -39,3 +39,14 @@ func RemoveItem(p *Character, item string) bool {
 	}
 	return false
 }
+
+func UpgradeInventorySlot(p *Character) {
+	if p.Upgrade >= 3 {
+		fmt.Printf("%sVous ne pouvez plus augmenter votre inventaire.%s\n", Red, Reset)
+		return
+	}
+
+	p.CapaciteMax += 10
+	p.Upgrade++
+	fmt.Printf("%sVotre inventaire a été augmenté de 10 slots ! Capacité actuelle : %d%s\n", Green, p.CapaciteMax, Reset)
+}

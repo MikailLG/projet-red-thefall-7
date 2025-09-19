@@ -11,6 +11,7 @@ func DisplayInfo(p Character) {
 	fmt.Printf("%sNiveau      : %d\n%s", Orange, p.Niveau, Reset)
 	fmt.Printf("%sPoints de vie : %d / %d\n%s", Orange, p.PointDeVie, p.PointDeVieMax, Reset)
 	fmt.Printf("%sÉquipement  :%s\n", Orange, Reset)
+	fmt.Printf("%sSlots d’inventaire : %d%s\n", Orange, p.CapaciteMax, Reset)
 	fmt.Printf("  - Tête  : %s\n", p.Equipement.Casque)
 	fmt.Printf("  - Torse : %s\n", p.Equipement.GiletParBalle)
 	fmt.Printf("  - Pieds : %s\n", p.Equipement.Botte)

@@ -15,6 +15,8 @@ type Character struct {
 	Competences   []string
 	Argent        int
 	Equipement    Equipement
+	CapaciteMax   int
+	Upgrade       int
 }
 
 type Equipement struct {
@@ -63,6 +65,8 @@ func InitCharacter() Character {
 		},
 		Competences: []string{""},
 		Argent:      100,
+		CapaciteMax: 10,
+		Upgrade:     0,
 		Equipement: Equipement{
 			Casque:        "Aucun",
 			GiletParBalle: "Aucun",
