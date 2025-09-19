@@ -38,12 +38,44 @@ func UseItem(p *Character, item string) {
 	switch item {
 	case "Technique de combat avancée":
 		apprendreCompetence(p, "Technique de combat avancée")
+
 	case "Bandage":
 		p.PointDeVie += 15
 		if p.PointDeVie > p.PointDeVieMax {
 			p.PointDeVie = p.PointDeVieMax
 		}
 		fmt.Printf("Vous utilisez un bandage.\nPV : %d / %d\n", p.PointDeVie, p.PointDeVieMax)
+	case "Casque renforcée":
+		if p.Equipement.Casque == "Aucun" {
+			p.Equipement.Casque = "Casque renforcée"
+			p.PointDeVieMax += 15
+			p.PointDeVie += 15
+			fmt.Println("Vous équipez un Casque. +15 PV max.")
+		} else {
+			fmt.Println("Vous portez déjà un casque.")
+			return
+		}
+	case "Gilet pare-balles":
+		if p.Equipement.GiletParBalle == "Aucun" {
+			p.Equipement.GiletParBalle = "Gilet pare-balles"
+			p.PointDeVieMax += 25
+			p.PointDeVie += 25
+			fmt.Println("Vous équipez un Gilet pare-balles. +25 PV max.")
+		} else {
+			fmt.Println("Vous portez déjà un gilet.")
+			return
+		}
+	case "Bottes renforcée":
+		if p.Equipement.Botte == "Aucune" {
+			p.Equipement.Botte = "Bottes renforcée"
+			p.PointDeVieMax += 10
+			p.PointDeVie += 10
+			fmt.Println("Vous équipez des Bottes renforcée. +10 PV max.")
+		} else {
+			fmt.Println("Vous portez déjà des bottes.")
+			return
+		}
+
 	default:
 		fmt.Println("Vous utilisez :", item)
 	}

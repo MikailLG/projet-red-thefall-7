@@ -62,7 +62,7 @@ func InitCharacter() Character {
 			"Couteau suisse": 1,
 		},
 		Competences: []string{""},
-		Argent:      20,
+		Argent:      100,
 		Equipement: Equipement{
 			Casque:        "Aucun",
 			GiletParBalle: "Aucun",
