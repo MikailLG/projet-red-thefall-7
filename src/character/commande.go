@@ -6,22 +6,24 @@ func DisplayInfo(p Character) {
 	fmt.Println("==============================")
 	fmt.Println("   Informations du personnage")
 	fmt.Println("==============================")
-	fmt.Printf("Nom         : %s\n", p.Nom)
-	fmt.Printf("Classe      : %s\n", p.Classe)
-	fmt.Printf("Niveau      : %d\n", p.Niveau)
-	fmt.Printf("Points de vie : %d / %d\n", p.PointDeVie, p.PointDeVieMax)
-	fmt.Println("Équipement  :")
-    fmt.Printf("  - Tête  : %s\n", p.Equipement.Casque)
-    fmt.Printf("  - Torse : %s\n", p.Equipement.GiletParBalle)
-    fmt.Printf("  - Pieds : %s\n", p.Equipement.Botte)
+	fmt.Printf("%sNom         : %s\n%s", Orange, p.Nom, Reset)
+	fmt.Printf("%sClasse      : %s\n%s", Orange, p.Classe, Reset)
+	fmt.Printf("%sNiveau      : %d\n%s", Orange, p.Niveau, Reset)
+	fmt.Printf("%sPoints de vie : %d / %d\n%s", Orange, p.PointDeVie, p.PointDeVieMax, Reset)
+	fmt.Printf("%sÉquipement  :%s\n", Orange, Reset)
+	fmt.Printf("  - Tête  : %s\n", p.Equipement.Casque)
+	fmt.Printf("  - Torse : %s\n", p.Equipement.GiletParBalle)
+	fmt.Printf("  - Pieds : %s\n", p.Equipement.Botte)
 
-	fmt.Println("Inventaire  :")
+	fmt.Println(Orange, "Inventaire  :")
 	for nom, quantite := range p.Inventaire {
 		fmt.Printf("  - %s x%d\n", nom, quantite)
 	}
-	fmt.Println("Compétences :")
+
+	fmt.Println(Orange, "Compétences :")
 	for _, skill := range p.Competences {
 		fmt.Printf("  - %s\n", skill)
 	}
-	fmt.Printf("Argent : %d pièces\n", p.Argent)
+
+	fmt.Printf("%sArgent : %d pièces\n%s", Yellow, p.Argent, Reset)
 }

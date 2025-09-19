@@ -45,7 +45,7 @@ func InitCharacter() Character {
 		case "Braconnier":
 			pvMax = 100
 		default:
-			fmt.Println("Erreur : classe inconnue. Veuillez entrer Militaire, Citoyen ou Braconnier.")
+			fmt.Printf("%sErreur : classe inconnue. Veuillez entrer Militaire, Citoyen ou Braconnier.%s", Red, Reset)
 			continue
 		}
 		break

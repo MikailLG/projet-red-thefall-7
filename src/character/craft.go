@@ -10,29 +10,29 @@ type Recette struct {
 
 var Recipes = []Recette{
 	{
-		Name: "Casque renforcée",
+		Name: "Casque renforcé",
 		Ingredients: map[string]int{
-			"Keyvlar": 3,
-			"Tissu":   2,
+			"Kevlar": 3,
+			"Tissu":  2,
 		},
-		ObjetCraft: "Casque renforcée",
+		ObjetCraft: "Casque renforcé",
 	},
 	{
 		Name: "Gilet pare-balles",
 		Ingredients: map[string]int{
-			"Keyvlar":       3,
+			"Kevlar":       3,
 			"Plaque de fer": 2,
-			"Tissu":         1,
+			"Tissu":        1,
 		},
 		ObjetCraft: "Gilet pare-balles",
 	},
 	{
-		Name: "Bottes renforcée",
+		Name: "Bottes renforcées",
 		Ingredients: map[string]int{
 			"Cuir":          2,
 			"Plaque de fer": 1,
 		},
-		ObjetCraft: "Bottes renforcée",
+		ObjetCraft: "Bottes renforcées",
 	},
 }
 
@@ -47,25 +47,29 @@ func CheckIngredient(p *Character, recipe Recette) bool {
 
 func Craft(p *Character, recipe Recette) {
 	if !CheckIngredient(p, recipe) {
-		fmt.Println("Vous n'avez pas les ressources nécessaires pour crafter", recipe.Name)
+		fmt.Printf("%sVous n'avez pas les ressources nécessaires pour crafter : %s%s\n", Red, recipe.Name, Reset)
 		return
 	}
+
 	for item, qty := range recipe.Ingredients {
 		p.Inventaire[item] -= qty
 		if p.Inventaire[item] <= 0 {
 			delete(p.Inventaire, item)
 		}
 	}
-	AddInventaire(p, recipe.ObjetCraft)
 
-	fmt.Println("Vous avez crafté :", recipe.ObjetCraft)
+	AddInventaire(p, recipe.ObjetCraft)
+	fmt.Printf("%sVous avez crafté : %s%s\n", Green, recipe.ObjetCraft, Reset)
 }
 
 func CraftMenu(p *Character) {
+	PlayMusic("craft.mp3")
+	defer StopMusic() 
 	for {
-		fmt.Println("==============================")
-		fmt.Println("          Atelier Craft")
-		fmt.Println("==============================")
+		fmt.Printf("%s==============================%s\n", Blue, Reset)
+		fmt.Printf("%s          Atelier Craft%s\n", Blue, Reset)
+		fmt.Printf("%s==============================%s\n", Blue, Reset)
+
 		for i, recipe := range Recipes {
 			fmt.Printf("%d) %s (", i+1, recipe.Name)
 			for item, quantite := range recipe.Ingredients {
@@ -73,6 +77,7 @@ func CraftMenu(p *Character) {
 			}
 			fmt.Println(")")
 		}
+
 		fmt.Println("0) Retour")
 		fmt.Print("Votre choix : ")
 

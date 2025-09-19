@@ -8,12 +8,12 @@ import (
 func apprendreCompetence(p *Character, apprendre string) {
 	for _, s := range p.Competences {
 		if s == apprendre {
-			fmt.Println("Vous avez déjà appris :", apprendre)
+			fmt.Printf("%sVous avez déjà appris :%s", Red, apprendre)
 			return
 		}
 	}
 	p.Competences = append(p.Competences, apprendre)
-	fmt.Println("Nouvelle compétence apprise :", apprendre)
+	fmt.Printf("%sNouvelle compétence apprise :%s", Green, apprendre)
 }
 
 func Heal(p *Character) {
@@ -22,16 +22,16 @@ func Heal(p *Character) {
 		if p.PointDeVie > p.PointDeVieMax {
 			p.PointDeVie = p.PointDeVieMax
 		}
-		fmt.Printf("Vous utilisez un bandage.\nPV : %d / %d\n", p.PointDeVie, p.PointDeVieMax)
+		fmt.Printf("%sVous utilisez un bandage.\nPV : %d / %d\n%s", Green, p.PointDeVie, p.PointDeVieMax, Reset)
 	} else {
-		fmt.Println("Vous n'avez pas de bandage dans votre inventaire.")
+		fmt.Printf("%sVous n'avez pas de bandage dans votre inventaire.%s", Red, Reset)
 	}
 }
 
 func UseItem(p *Character, item string) {
 	quantite, exists := p.Inventaire[item]
 	if !exists {
-		fmt.Println("Objet non trouvé dans l’inventaire :", item)
+		fmt.Printf("%sObjet non trouvé dans l’inventaire :%s", item, Red)
 		return
 	}
 
@@ -44,15 +44,15 @@ func UseItem(p *Character, item string) {
 		if p.PointDeVie > p.PointDeVieMax {
 			p.PointDeVie = p.PointDeVieMax
 		}
-		fmt.Printf("Vous utilisez un bandage.\nPV : %d / %d\n", p.PointDeVie, p.PointDeVieMax)
+		fmt.Printf("%sVous utilisez un bandage.\nPV : %d / %d\n%s", Green, p.PointDeVie, p.PointDeVieMax, Reset)
 	case "Casque renforcée":
 		if p.Equipement.Casque == "Aucun" {
 			p.Equipement.Casque = "Casque renforcée"
 			p.PointDeVieMax += 15
 			p.PointDeVie += 15
-			fmt.Println("Vous équipez un Casque. +15 PV max.")
+			fmt.Printf("%sVous équipez un Casque. +15 PV max.%s", Green, Reset)
 		} else {
-			fmt.Println("Vous portez déjà un casque.")
+			fmt.Printf("%sVous portez déjà un casque.%s", Red, Reset)
 			return
 		}
 	case "Gilet pare-balles":
@@ -60,9 +60,9 @@ func UseItem(p *Character, item string) {
 			p.Equipement.GiletParBalle = "Gilet pare-balles"
 			p.PointDeVieMax += 25
 			p.PointDeVie += 25
-			fmt.Println("Vous équipez un Gilet pare-balles. +25 PV max.")
+			fmt.Printf("%sVous équipez un Gilet pare-balles. +25 PV max.%s", Green, Reset)
 		} else {
-			fmt.Println("Vous portez déjà un gilet.")
+			fmt.Printf("%sVous portez déjà un gilet.%s", Red, Reset)
 			return
 		}
 	case "Bottes renforcée":
@@ -70,9 +70,9 @@ func UseItem(p *Character, item string) {
 			p.Equipement.Botte = "Bottes renforcée"
 			p.PointDeVieMax += 10
 			p.PointDeVie += 10
-			fmt.Println("Vous équipez des Bottes renforcée. +10 PV max.")
+			fmt.Printf("%sVous équipez des Bottes renforcée. +10 PV max.%s", Green, Reset)
 		} else {
-			fmt.Println("Vous portez déjà des bottes.")
+			fmt.Printf("%sVous portez déjà des bottes.%s", Red, Reset)
 			return
 		}
 

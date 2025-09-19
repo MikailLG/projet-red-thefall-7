@@ -22,9 +22,9 @@ func AddInventaire(p *Character, item string) {
 	}
 	if _, exists := p.Inventaire[item]; exists || len(p.Inventaire) < 10 {
 		p.Inventaire[item]++
-		fmt.Println(item, "ajouté à l'inventaire.")
+		fmt.Println(item, Green, "ajouté à l'inventaire.")
 	} else {
-		fmt.Println("Votre inventaire est plein ! Impossible d'ajouter", item)
+		fmt.Println(Red, "Votre inventaire est plein ! Impossible d'ajouter", item)
 	}
 }
 
