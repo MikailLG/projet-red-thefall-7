@@ -19,7 +19,8 @@ func mainMenu(personnage *character.Character) {
 		fmt.Println("2) Accéder à l'inventaire")
 		fmt.Println("3) Aller chez le marchand")
 		fmt.Println("4) Craft")
-		fmt.Println("5) Utiliser un objet")
+		fmt.Println("5) Entraînement")
+		fmt.Println("6) Utiliser un objet")
 		fmt.Println("0) Quitter")
 		fmt.Print("Choix : ")
 
@@ -36,6 +37,8 @@ func mainMenu(personnage *character.Character) {
 		case "4":
 			character.CraftMenu(personnage)
 		case "5":
+			character.EntrainementMenu(personnage)
+		case "6":
 			fmt.Print("Quel objet utiliser ? ")
 			objet, _ := reader.ReadString('\n')
 			character.UseItem(personnage, strings.TrimSpace(objet))
