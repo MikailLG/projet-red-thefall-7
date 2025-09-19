@@ -18,3 +18,4 @@ func ClearScreen() {
 		cmd.Run()
 	}
 }
+

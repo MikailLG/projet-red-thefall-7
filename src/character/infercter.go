@@ -45,30 +45,30 @@ func CombatEntrainement(j *Character, m *Infecter) {
 			if m.PointDeVie < 0 {
 				m.PointDeVie = 0
 			}
-			fmt.Printf("Vous attaquez %s !\n", m.Nom)
+			fmt.Printf("%sVous attaquez %s !%s\n", Yellow, m.Nom, Reset)
 		case "2":
 			j.PointDeVie += 10
 			if j.PointDeVie > j.PointDeVieMax {
 				j.PointDeVie = j.PointDeVieMax
 			}
-			fmt.Println("Vous vous soignez !")
+			fmt.Printf("%sVous vous soignez ! Vous avez maintenant %d/%d PV%s\n", Green, j.PointDeVie, j.PointDeVieMax, Reset)
 		default:
 			fmt.Println("Choix invalide ! Vous perdez votre tour.")
 		}
 		if m.PointDeVie == 0 {
-			fmt.Println("Vous avez vaincu le monstre !")
+			fmt.Printf("%sVous avez vaincu le monstre !%s\n", Yellow, Reset)
 			break
 		}
 		j.PointDeVie -= m.PointAttaque
 		if j.PointDeVie < 0 {
 			j.PointDeVie = 0
 		}
-		fmt.Printf("%s inflige à %s %d de dégâts\n", m.Nom, j.Nom, m.PointAttaque)
-		fmt.Printf("%s a maintenant %d/%d PV\n", j.Nom, j.PointDeVie, j.PointDeVieMax)
+		fmt.Printf("%s%s inflige à %s %d de dégâts%s\n", Red, m.Nom, j.Nom, m.PointAttaque, Reset)
+		fmt.Printf("PV de %s : %d/%d\n", j.Nom, j.PointDeVie, j.PointDeVieMax)
 		fmt.Println("-----------------------")
 
 		if j.PointDeVie == 0 {
-			fmt.Println("Vous avez été vaincu...")
+			fmt.Printf("%sVous avez été vaincu...%s\n", Red, Reset)
 			break
 		}
 		tour++
@@ -101,18 +101,18 @@ func CombatColosse(j *Character, c *Infecter) {
 			if c.PointDeVie < 0 {
 				c.PointDeVie = 0
 			}
-			fmt.Printf("Vous attaquez %s !\n", c.Nom)
+			fmt.Printf("%sVous attaquez %s !%s\n", Yellow, c.Nom, Reset)
 		case "2":
 			j.PointDeVie += 10
 			if j.PointDeVie > j.PointDeVieMax {
 				j.PointDeVie = j.PointDeVieMax
 			}
-			fmt.Println("Vous vous soignez !")
+			fmt.Printf("%sVous vous soignez ! Vous avez maintenant %d/%d PV%s\n", Green, j.PointDeVie, j.PointDeVieMax, Reset)
 		default:
 			fmt.Println("Choix invalide ! Vous perdez votre tour.")
 		}
 		if c.PointDeVie == 0 {
-			fmt.Println("Vous avez vaincu le Colosse !")
+			fmt.Printf("%sVous avez vaincu le Colosse !%s\n", Yellow, Reset)
 			break
 		}
 		var degats int
@@ -126,11 +126,11 @@ func CombatColosse(j *Character, c *Infecter) {
 		if j.PointDeVie < 0 {
 			j.PointDeVie = 0
 		}
-		fmt.Printf("%s inflige à %s %d de dégâts\n", c.Nom, j.Nom, degats)
-		fmt.Printf("%s a maintenant %d/%d PV\n", j.Nom, j.PointDeVie, j.PointDeVieMax)
+		fmt.Printf("%s%s inflige à %s %d de dégâts%s\n", Red, c.Nom, j.Nom, degats, Reset)
+		fmt.Printf("PV de %s : %d/%d\n", j.Nom, j.PointDeVie, j.PointDeVieMax)
 		fmt.Println("-----------------------")
 		if j.PointDeVie == 0 {
-			fmt.Println("Vous avez été vaincu par le Colosse !")
+			fmt.Printf("%sVous avez été vaincu par le Colosse !%s\n", Red, Reset)
 			break
 		}
 		tour++
